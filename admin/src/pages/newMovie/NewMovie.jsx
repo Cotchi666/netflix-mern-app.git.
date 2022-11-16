@@ -35,6 +35,7 @@ export default function NewMovie() {
           console.log(error);
         },
         () => {
+          //get url google firestorage
           uploadTask.snapshot.ref.getDownloadURL().then((url) => {
             setMovie((prev) => {
               return { ...prev, [item.label]: url };

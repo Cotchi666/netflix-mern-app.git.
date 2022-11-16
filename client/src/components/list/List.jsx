@@ -25,6 +25,7 @@ export default function List({ list }) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
+  
   return (
     <div className="list">
       <span className="listTitle">{list.title}</span>

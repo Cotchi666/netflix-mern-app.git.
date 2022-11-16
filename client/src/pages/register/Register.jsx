@@ -1,27 +1,32 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import "./register.scss";
 
 export default function Register() {
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const usernameRef = useRef(null);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const history = useHistory();
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const usernameRef = useRef();
-
-  const handleStart = () => {
+  const handleStart = async (e) => {
+    e.preventDefault();
     setEmail(emailRef.current.value);
   };
+  console.log("pas", password);
+
   const handleFinish = async (e) => {
     e.preventDefault();
-    setPassword(passwordRef.current.value);
-    setUsername(usernameRef.current.value);
-
+    console.log("email", email);
+    // setPassword(passwordRef.current.value);
+    // setUsername(usernameRef.current.value);
+    console.log("pas2", password);
+    console.log("pas2", username);
     try {
       const data = await axios.post("auth/register", {
         email,
@@ -34,7 +39,7 @@ export default function Register() {
   };
   const signin = (e) => {
     e.preventDefault();
-    console.log("123")
+    console.log("123");
     history.push("/login");
   };
   return (
@@ -46,7 +51,7 @@ export default function Register() {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-           <button className="loginButton"  onClick={signin}>
+          <button className="loginButton" onClick={signin}>
             Sign In
           </button>
         </div>
@@ -57,7 +62,7 @@ export default function Register() {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-      
+
         {!email ? (
           <div className="input">
             <input type="email" placeholder="email address" ref={emailRef} />
@@ -67,8 +72,18 @@ export default function Register() {
           </div>
         ) : (
           <form className="input">
-            <input type="username" placeholder="username" ref={usernameRef} />
-            <input type="password" placeholder="password" ref={passwordRef} />
+            {/* <input type="username" placeholder="username" ref={usernameRef} /> */}
+            <input
+              type="username"
+              placeholder="Email or phone number"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {/* <input type="password" placeholder="password" ref={passwordRef} /> */}
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>

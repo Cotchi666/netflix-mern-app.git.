@@ -7,24 +7,32 @@ export default function Watch() {
   const location = useLocation();
   const movie = location.movie;
 
+  
   const [nowlocation, setLocation] = useState({});
   const [nowMovie, setMovie] = useState({});
+  // const { dispatch } = useContext(AuthContext);
+
   console.log(nowlocation);
   console.log(location);
   useEffect(() => {
     if (!movie) {
       
       setMovie(JSON.parse(localStorage.getItem("movie")));
+    
+     
     } else {
+      
       setMovie(movie);
       localStorage.setItem("movie", JSON.stringify(movie));
     }
 
   }, []);
+
   console.log(nowlocation);
   return (
     <div className="watch">
-      <Link to="/">
+
+      <Link to="/browse">
         <div className="back">
           <ArrowBackOutlined />
           Home
