@@ -9,3 +9,11 @@ Hướng dẫn thực hiện website:
 1.	Chạy lệnh npm start ở hai thư mục api, client sẽ chạy lên giao diện người dung.
 2.	Chạy lệnh npm start ở hai thư mục api, admin sẽ chạy lên giao diện admin.(gõ thêm đường dẫn /login để dẫn đến trang login admin)
 3.	Tài khoản admin (tk: “chien@gmail.com” , mk: “123456”)
+
+# Eng
+Guide to setup the website:
+1.   Install and setup Nodejs with v16.5.0 version.
+2.   Clone source code at: https://github.com/Cotchi666/netflix-src-test.
+3.   Open each folder and run "npm install"
+4.   Run "npm start" in order (api -> client -> admin)
+5.   Test account : "chien@gmail.com" , "123456"
