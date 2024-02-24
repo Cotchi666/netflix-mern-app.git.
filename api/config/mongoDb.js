@@ -5,7 +5,7 @@ function connect() {
     mongoose.set("useNewUrlParser", true);
     mongoose.set("useFindAndModify", false);
     mongoose.set("useCreateIndex", true);
-    mongoose.connect(process.env.MONGO_URL, {
+    mongoose.connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
